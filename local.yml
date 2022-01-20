@@ -6,10 +6,6 @@
     source_key_public: "./.ssh/id_ed25519.pub"
     dest_key_public: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
   tasks:
-  - name: Install Zsh Already installed on MacOS
-    apt: name=zsh
-    tags:
-      - zsh
   - name: Change shell to zsh
     shell: chsh -s `which zsh`
     tags:
