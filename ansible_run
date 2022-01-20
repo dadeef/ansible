@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ansible
+
+sudo ansible-pull -U https://github.com/dadeef/ansible.git
