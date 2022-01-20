@@ -5,12 +5,13 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     source_key_public: "./.ssh/id_ed25519.pub"
     dest_key_public: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
-    user: francoisderen
+    # user: francoisderen
   tasks:
   - name: Change shell to zsh
     shell: chsh -s `which zsh`
     tags:
       - zsh
+
   - name: Install ohmyzsh
     shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     tags:
