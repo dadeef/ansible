@@ -1,5 +1,10 @@
 - hosts: localhost
   become: true
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    source_key_public: "./.ssh/id_ed25519.pub"
+    dest_key_public: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
   tasks:
   - name: Install Zsh Already installed on MacOS
     apt: name=zsh
@@ -9,7 +14,6 @@
     shell: chsh -s `which zsh`
     tags:
       - zsh
-      - task
   - name: Install ohmyzsh
     shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     tags:
@@ -28,3 +32,5 @@
         - httpie
     tags:
       - homebrew
+  - name: copy ssh keys
+    include: tasks/ssh.yml
