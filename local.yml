@@ -18,8 +18,8 @@
     ansible.builtin.git:
       repo: https://github.com/zsh-users/zsh-autosuggestions
       dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
-      tags:
-        - zsh
+    tags:
+      - zsh
   - name: Install homebrew packages
     become: false
     community.general.homebrew:
