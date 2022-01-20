@@ -8,7 +8,7 @@
     - dotfiles
     - ssh
 - name: Install ssh key
-  become_user: davidderen
+  become_user: "{{ user }}"
   copy:
     src: "{{ source_key}}"
     dest: "{{ dest_key }}"
@@ -17,7 +17,7 @@
     - dotfiles
     - ssh
 - name: Install ssh public key
-  become_user: davidderen
+  become_user: "{{ user }}"
   copy:
     src: "{{ source_key_public }}"
     dest: "{{ dest_key_public }}"
