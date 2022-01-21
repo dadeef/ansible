@@ -33,3 +33,5 @@
     include: tasks/ssh.yml
   - name: copy and stow dotfiles
     include: tasks/dotfiles.yml
+  - name: Install MacOS Apps
+    include: tasks/apps.yml
