@@ -8,18 +8,17 @@
   tasks:
   - name: Install homebrew packages
     become_user: "{{ user }}"
-    community.general.homebrew:
+    homebrew:
       name:
         - nvm
         - httpie
     tags:
       - homebrew
-  - name: Setup Zsh
+  - import_tasks: tasks/zsh.yml
     tags: zsh
-    include: tasks/zsh.yml
-  - name: copy and stow dotfiles
-    include: tasks/dotfiles.yml
-  - name: copy ssh keys
-    include: tasks/ssh.yml
-  - name: Install MacOS Apps
-    include: tasks/apps.yml
+  - import_tasks: tasks/dotfiles.yml
+  - import_tasks: tasks/ssh.yml
+  - import_tasks: tasks/apps.yml
+  - import_tasks: tasks/yabai.yml
+    tags:
+    - yabai

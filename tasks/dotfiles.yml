@@ -1,6 +1,6 @@
 - name: Installing stow
   become_user: "{{ user }}"
-  community.general.homebrew:
+  homebrew:
     name:
       - stow
   tags:
@@ -16,6 +16,6 @@
   tags:
     - dotfiles
 - name: Stow dotfiles
-  shell: rm $HOME/.zshrc && cd $HOME/.dotfiles && stow .zsh # remove auto=generated .zshrc to prevent stow conflicts
+  shell: rm $HOME/.zshrc && cd $HOME/.dotfiles && stow home # remove auto=generated .zshrc to prevent stow conflicts
   tags:
     - dotfiles
