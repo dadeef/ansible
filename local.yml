@@ -14,11 +14,11 @@
         - httpie
     tags:
       - homebrew
-  - name: copy and stow dotfiles
-    include: tasks/dotfiles.yml
   - name: Setup Zsh
     tags: zsh
     include: tasks/zsh.yml
+  - name: copy and stow dotfiles
+    include: tasks/dotfiles.yml
   - name: copy ssh keys
     include: tasks/ssh.yml
   - name: Install MacOS Apps

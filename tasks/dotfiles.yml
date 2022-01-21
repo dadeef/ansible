@@ -16,6 +16,6 @@
   tags:
     - dotfiles
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && stow .zsh
+  shell: rm $HOME/.zshrc && cd $HOME/.dotfiles && stow .zsh # remove auto=generated .zshrc to prevent stow conflicts
   tags:
     - dotfiles
