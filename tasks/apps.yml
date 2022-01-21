@@ -1,4 +1,5 @@
 - name: Install iTerm2
+  become_user: "{{ user }}"
   community.general.homebrew_cask:
     name: iterm2
     state: present
