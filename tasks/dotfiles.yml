@@ -1,0 +1,21 @@
+- name: Installing stow
+  become_user: "{{ user }}"
+  community.general.homebrew:
+    name:
+      - stow
+  tags:
+    - dotfiles
+- name: Cloning .dotfiles
+  ansible.builtin.git:
+    repo: 'git@github.com:dadeef/.dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - dotfiles
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && stow .zsh
+  tags:
+    - dotfiles

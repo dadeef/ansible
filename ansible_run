@@ -4,7 +4,7 @@ echo "lets get things started"
 echo "What is the username on the machine you're setting up? "
 read username
 
-echo "What's the Ansible Vauld password? "
+echo "What's the Ansible Vault password? "
 read -s vault_password
 echo $vault_password > vault-pass.txt #We need to temporarily store the password in a file because we cannot use the --ask-vault-password with the ansible-pull command
 
