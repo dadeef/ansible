@@ -12,6 +12,7 @@
       name:
         - nvm
         - httpie
+        - tldr
     tags:
       - homebrew
   - import_tasks: tasks/zsh.yml
@@ -19,6 +20,6 @@
   - import_tasks: tasks/dotfiles.yml
   - import_tasks: tasks/ssh.yml
   - import_tasks: tasks/apps.yml
-  - import_tasks: tasks/yabai.yml
+  - import_tasks: tasks/navigation.yml
     tags:
-    - yabai
+      - navigation
