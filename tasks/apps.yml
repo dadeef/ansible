@@ -5,3 +5,11 @@
     state: present
   tags:
     - apps
+      
+- name: Install 1password
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: 1password
+    state: present
+  tags:
+    - apps

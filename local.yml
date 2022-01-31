@@ -23,3 +23,6 @@
   - import_tasks: tasks/navigation.yml
     tags:
       - navigation
+  - import_tasks: tasks/vim.yml
+    tags:
+      - vim
