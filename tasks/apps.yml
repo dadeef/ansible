@@ -5,11 +5,51 @@
     state: present
   tags:
     - apps
-      
+
 - name: Install 1password
   become_user: "{{ user }}"
   homebrew_cask:
     name: 1password
+    state: present
+  tags:
+    - apps
+
+- name: Install Alfred
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: alfred
+    state: present
+  tags:
+    - apps
+
+- name: Install VS Code
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: visual-studio-code
+    state: present
+  tags:
+    - apps
+
+- name: Install Gitkraken
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: gitkraken
+    state: present
+  tags:
+    - apps
+
+- name: Install Slack
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: slack
+    state: present
+  tags:
+    - apps
+
+- name: Install Brave
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: brave-browser
     state: present
   tags:
     - apps
