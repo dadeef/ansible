@@ -61,3 +61,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Todoist
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: todoist
+    state: present
+  tags:
+    - apps
