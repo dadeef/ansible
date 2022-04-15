@@ -1,0 +1,5 @@
+TODO:
+
+- Install kubectl
+- brew install int128/kubelogin/kubelogin
+- copy the config file https://confluence.mediahuis.nl/display/TELG/03_Kubectl+configuration
