@@ -10,6 +10,6 @@ sudo xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
 
-sudo ansible-pull -U https://github.com/dadeef/ansible.git --extra-vars "user=(id -un)" --vault-password-file vault-pass.txt
+sudo ansible-pull -U https://github.com/dadeef/ansible.git --extra-vars "user=$(id -un)" --vault-password-file vault-pass.txt
 
 rm vault-pass.txt
