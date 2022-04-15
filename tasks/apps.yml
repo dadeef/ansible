@@ -69,3 +69,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Docker
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: docker
+    state: present
+  tags:
+    - apps
