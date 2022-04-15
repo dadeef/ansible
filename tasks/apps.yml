@@ -53,3 +53,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Fantastical
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: fantastical
+    state: present
+  tags:
+    - apps
