@@ -1,9 +1,9 @@
 - hosts: localhost
   become: true
   vars:
-    source_key: "https://raw.githubusercontent.com/dadeef/ansible/master/.ssh/id_ed25519"
+    source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    source_key_public: "https://raw.githubusercontent.com/dadeef/ansible/master/.ssh/id_ed25519.pub"
+    source_key_public: "./.ssh/id_ed25519.pub"
     dest_key_public: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
   tasks:
   - import_tasks: tasks/zsh.yml
