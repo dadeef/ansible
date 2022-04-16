@@ -9,7 +9,7 @@
     - ssh
 - name: Install ssh private key
   become_user: "{{ user }}"
-  copy:
+  fetch:
     src: "{{ source_key}}"
     dest: "{{ dest_key }}"
     mode: 0600
@@ -18,7 +18,7 @@
     - ssh
 - name: Install ssh public key
   become_user: "{{ user }}"
-  copy:
+  fetch:
     src: "{{ source_key_public }}"
     dest: "{{ dest_key_public }}"
     mode: 0600
