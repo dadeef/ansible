@@ -1,2 +1,2 @@
 - name: Show hidden files in finder
-  shell: defaults write com.apple.Finder AppleShowAllFiles true
+  shell: defaults write com.apple.finder AppleShowAllFiles -boolean true; killall Finder

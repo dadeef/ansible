@@ -7,7 +7,7 @@
   tags:
     - dotfiles
     - ssh
-- name: Install ssh key
+- name: Install ssh private key
   become_user: "{{ user }}"
   copy:
     src: "{{ source_key}}"
