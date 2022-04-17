@@ -15,3 +15,6 @@
     tags:
       - vim
   - import_tasks: tasks/macos.yml
+  - import_tasks: tasks/cobalt2.yml
+    tags:
+      - cobalt2

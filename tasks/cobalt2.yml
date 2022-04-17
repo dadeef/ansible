@@ -1,0 +1,26 @@
+- name: Get Cobalt2 theme but replace the lame ✝ with a cool λ
+  shell: curl https://raw.githubusercontent.com/wesbos/Cobalt2-iterm/master/cobalt2.zsh-theme | sed 's/✝/λ/g' > {{ lookup('env', 'HOME') }}/.oh-my-zsh/themes/cobalt2.zsh-theme
+
+- name: Install pip
+  shell: |
+    python3 -m ensurepip --upgrade
+    curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py
+    sudo rm get-pip.py
+
+- name: Install powerline
+  shell: pip install --user powerline-status
+
+- name: Install powerline fonts
+  shell: |
+    git clone https://github.com/powerline/fonts
+    ./fonts/install.sh
+    sudo rm -r fonts
+
+- name: Specify the preferences directory for iTerm2
+  become_user: "{{ user }}"
+  shell: defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/home/plists
+
+- name: Tell iTerm2 to use the custom preferences in the directory
+  become_user: "{{ user }}"
+  shell: defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
