@@ -3,8 +3,6 @@
   homebrew:
     name:
       - stow
-  tags:
-    - dotfiles
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'https://github.com/dadeef/.dotfiles.git'
@@ -13,15 +11,7 @@
     update: yes
     accept_hostkey: yes
     version: master
-  tags:
-    - dotfiles
-    - navigation
 - name: Stow dotfiles
   shell: rm $HOME/.zshrc && cd $HOME/.dotfiles && stow home # remove auto=generated .zshrc to prevent stow conflicts
-  tags:
-    - dotfiles
 - name: Stow executables
   shell: cd $HOME/.dotfiles && stow bin -t /
-  tags:
-    - dotfiles
-    - navigation
