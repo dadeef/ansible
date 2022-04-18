@@ -1,5 +1,5 @@
 - name: Ensure .ssh directory exists.
-  become_user: root
+  become_user: "{{user}}"
   file:
     dest: "{{ dest_key | dirname }}"
     mode: 0700
@@ -8,7 +8,7 @@
     - dotfiles
     - ssh
 - name: Install ssh private key
-  become_user: root
+  become_user: "{{user}}"
   copy:
     src: "{{ source_key}}"
     dest: "{{ dest_key }}"
@@ -17,7 +17,7 @@
     - dotfiles
     - ssh
 - name: Install ssh public key
-  become_user: root
+  become_user: "{{user}}"
   copy:
     src: "{{ source_key_public }}"
     dest: "{{ dest_key_public }}"
