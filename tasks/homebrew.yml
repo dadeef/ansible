@@ -97,3 +97,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Rocket 🚀
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: rocket
+    state: present
+  tags:
+    - apps

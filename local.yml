@@ -11,9 +11,10 @@
   - import_tasks: tasks/dotfiles.yml
   - import_tasks: tasks/ssh.yml
   - import_tasks: tasks/homebrew.yml
-    tags:
-      - navigation
   - import_tasks: tasks/vim.yml
     tags:
       - vim
   - import_tasks: tasks/macos.yml
+  - import_tasks: tasks/cobalt2.yml
+    tags:
+      - cobalt2
