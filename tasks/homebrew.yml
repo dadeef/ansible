@@ -105,3 +105,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Setapp
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: setapp
+    state: present
+  tags:
+    - apps
