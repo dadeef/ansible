@@ -1,10 +1,18 @@
 - hosts: localhost
   become: true
   vars:
+    source_config: "./.ssh/config"
+    dest_config: "{{ lookup('env', 'HOME') }}/.ssh/config"
+
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     source_key_public: "./.ssh/id_ed25519.pub"
     dest_key_public: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+
+    source_key_old_skool: "./.ssh/id_rsa"
+    dest_key_old_skool: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    source_key_public_old_skool: "./.ssh/id_rsa.pub"
+    dest_key_public_old_skool: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
   tasks:
   - import_tasks: tasks/zsh.yml
     tags: zsh

@@ -25,7 +25,7 @@
   tags:
     - dotfiles
     - ssh
-- name: Set authorized key took from file
+- name: Adds SSH authorized key for user account
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
@@ -34,3 +34,46 @@
   tags:
     - dotfiles
     - ssh
+
+# Old School key stuff for Azure compatibility
+
+- name: Copy ssh config so we can use the right ssh key depending on the domain
+  become_user: "{{user}}"
+  copy:
+    src: "{{ source_config}}"
+    dest: "{{ dest_config }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - ssh
+    - old-skool
+
+- name: Install ssh old skool private key
+  become_user: "{{user}}"
+  copy:
+    src: "{{ source_key_old_skool}}"
+    dest: "{{ dest_key_old_skool }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - ssh
+    - old-skool
+- name: Install ssh old skool public key
+  become_user: "{{user}}"
+  copy:
+    src: "{{ source_key_public_old_skool }}"
+    dest: "{{ dest_key_public_old_skool }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - ssh
+    - old-skool
+- name: Adds SSH old skool authorized key for user account
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+  tags:
+    - dotfiles
+    - ssh
+    - old-skool
