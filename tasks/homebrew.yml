@@ -113,3 +113,11 @@
     state: present
   tags:
     - apps
+
+- name: Install Dropbox
+  become_user: "{{ user }}"
+  homebrew_cask:
+    name: dropbox
+    state: present
+  tags:
+    - apps
