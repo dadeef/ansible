@@ -5,7 +5,6 @@
     mode: 0700
     state: directory
   tags:
-    - dotfiles
     - ssh
 - name: Install ssh private key
   become_user: "{{user}}"
@@ -14,7 +13,6 @@
     dest: "{{ dest_key }}"
     mode: 0600
   tags:
-    - dotfiles
     - ssh
 - name: Install ssh public key
   become_user: "{{user}}"
@@ -23,7 +21,6 @@
     dest: "{{ dest_key_public }}"
     mode: 0600
   tags:
-    - dotfiles
     - ssh
 - name: Adds SSH authorized key for user account
   authorized_key:
@@ -32,7 +29,6 @@
     # key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_ed25519.pub') }}"
   tags:
-    - dotfiles
     - ssh
 
 # Old School key stuff for Azure compatibility
@@ -44,7 +40,6 @@
     dest: "{{ dest_config }}"
     mode: 0600
   tags:
-    - dotfiles
     - ssh
     - old-skool
 
@@ -55,7 +50,6 @@
     dest: "{{ dest_key_old_skool }}"
     mode: 0600
   tags:
-    - dotfiles
     - ssh
     - old-skool
 - name: Install ssh old skool public key
@@ -65,7 +59,6 @@
     dest: "{{ dest_key_public_old_skool }}"
     mode: 0600
   tags:
-    - dotfiles
     - ssh
     - old-skool
 - name: Adds SSH old skool authorized key for user account
@@ -74,6 +67,5 @@
     state: present
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
   tags:
-    - dotfiles
     - ssh
     - old-skool

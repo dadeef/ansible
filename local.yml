@@ -14,15 +14,19 @@
     source_key_public_old_skool: "./.ssh/id_rsa.pub"
     dest_key_public_old_skool: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
   tasks:
-  - import_tasks: tasks/zsh.yml
-    tags: zsh
-  - import_tasks: tasks/dotfiles.yml
-  - import_tasks: tasks/ssh.yml
-  - import_tasks: tasks/homebrew.yml
-  - import_tasks: tasks/vim.yml
-    tags:
-      - vim
-  - import_tasks: tasks/macos.yml
-  - import_tasks: tasks/cobalt2.yml
-    tags:
-      - cobalt2
+    - import_tasks: tasks/zsh.yml
+      tags: zsh
+    - import_tasks: tasks/dotfiles.yml
+      tags: tasks/dotfiles.yml
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/homebrew.yml
+    - import_tasks: tasks/vim.yml
+      tags:
+        - vim
+    - import_tasks: tasks/macos.yml
+    - import_tasks: tasks/cobalt2.yml
+      tags:
+        - cobalt2
+    - import_tasks: tasks/yabai.yml
+      tags:
+        - yabai

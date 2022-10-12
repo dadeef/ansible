@@ -1,0 +1,9 @@
+- name: Install yabai
+  become_user: "{{ user }}"
+  homebrew:
+    name:
+      - koekeishiya/formulae/yabai
+
+- name: start yabai
+  become_user: "{{ user }}"
+  shell: "/usr/local/bin/brew services start yabai"
