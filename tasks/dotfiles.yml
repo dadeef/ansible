@@ -5,13 +5,11 @@
       - stow
 - name: Cloning .dotfiles
   ansible.builtin.git:
-    repo: 'https://github.com/dadeef/.dotfiles.git'
+    repo: "https://github.com/dadeef/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
     recursive: yes
     update: yes
     accept_hostkey: yes
     version: master
-- name: Stow dotfiles
+- name: Stow dotfiles (and executables)
   shell: rm $HOME/.zshrc && cd $HOME/.dotfiles && stow home # remove auto=generated .zshrc to prevent stow conflicts
-- name: Stow executables
-  shell: cd $HOME/.dotfiles && stow bin -t /
